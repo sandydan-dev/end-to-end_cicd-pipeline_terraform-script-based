@@ -1,0 +1,28 @@
+---
+- hosts: docker
+  become: true
+  tasks:
+
+    - name: Stop existing container if running
+      command: docker stop temp-folio
+      ignore_errors: yes
+
+    - name: Remove existing container
+      command: docker rm temp-folio
+      ignore_errors: yes
+
+    - name: Remove old image if exists
+      command: docker rmi sandeep452/devops-portfolio:latest
+      ignore_errors: yes
+
+    - name: Build new Docker image
+      command: docker build -t sandeep452/devops-portfolio:latest .
+      args:
+        chdir: /opt/docker/end-to-end_cicd-pipeline_terraform-script-based
+
+    - name: Push image to Docker Hub
+      command: docker push sandeep452/devops-portfolio:latest
+
+    - name: Run new container
+      command: docker run -d --name temp-folio -p 8082:8080 sandeep452/devops-portfolio:latest
+
