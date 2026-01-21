@@ -16,7 +16,7 @@
       ignore_errors: yes
 
     - name: Build new Docker image
-      command: docker build -t sandeep452/devops-portfolio:latest .
+      command: docker build --no-cache -t sandeep452/devops-portfolio:latest .
       args:
         chdir: /opt/docker/end-to-end_cicd-pipeline_terraform-script-based
 
