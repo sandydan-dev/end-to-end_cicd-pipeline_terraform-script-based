@@ -3,12 +3,6 @@
   become: true
   tasks:
 
-    - name: Copy WAR file from Ansible server to Docker server
-      copy:
-        src: /opt/docker/end-to-end_cicd-pipeline_terraform-script-based/webapp.war
-        dest: /opt/docker/end-to-end_cicd-pipeline_terraform-script-based/webapp.war
-        mode: '0644'
-
     - name: Stop existing container if running
       command: docker stop temp-folio
       ignore_errors: yes
