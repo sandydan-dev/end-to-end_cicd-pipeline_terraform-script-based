@@ -11,3 +11,5 @@
     - name: apply service
       command: kubectl apply -f /root/my_service.yml
 
+    - name: update deployment with new pods if image updated to docker hub
+      command: kubectl rollout restart deployment.apps/mydeployment  
