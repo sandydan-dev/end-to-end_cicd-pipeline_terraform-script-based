@@ -147,7 +147,7 @@ footer {
 <body>
 
 <div class="container">
-    <h1>DevOps Engineer  Danny</h1>
+    <h1>DevOps Engineer Sandeep Danny</h1>
     <p class="subtitle">Building pipelines, deploying infrastructure, and automating workflows like a pro.</p>
 
     <div class="projects">
