@@ -1,0 +1,13 @@
+---
+- name: Deploy app to kubernets
+  hosts: kubernetes
+  remote_user: root
+
+  tasks:
+    
+    - name: apply deployment 
+      command: kubectl apply -f /root/my_deploy.yml
+
+    - name: apply service
+      command: kubectl apply -f /root/my_service.yml
+

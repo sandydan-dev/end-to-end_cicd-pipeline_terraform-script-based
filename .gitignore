@@ -1,1 +1,11 @@
-./*.war
+# Maven build output
+target/
+*.war
+*.jar
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
