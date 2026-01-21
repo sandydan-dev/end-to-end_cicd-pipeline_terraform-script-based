@@ -2,8 +2,13 @@
 - hosts: docker
   become: true
   tasks:
+     
+    - name: copy war file to docker host
+      copy:
+        src: /opt/docker/end-to-end_cicd-pipeline_terraform-script-based/webapp.war
+        dest: /opt/docker/end-to-end_cicd-pipeline_terraform-script-based
 
-
+     
     - name: Stop existing container if running
       command: docker stop temp-folio
       ignore_errors: yes
