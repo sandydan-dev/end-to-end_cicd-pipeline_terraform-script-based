@@ -19,7 +19,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
- <maven.compiler.release>17</maven.compiler.release>
+    <maven.compiler.release>17</maven.compiler.release>
   </properties>
 
   <dependencies>
@@ -50,6 +50,9 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
+          <configuration>
+            <release>17</release>
+          </configuration>
         </plugin>
 
         <plugin>
@@ -76,29 +79,31 @@
     </pluginManagement>
   </build>
 
-  <!-- ✅ ADDED ONLY THIS SECTION -->
+  <!-- ✅ Matrix build profiles -->
   <profiles>
 
-  <profile>
-    <id>dev</id>
-    <properties>
-      <env.name>dev</env.name>
-    </properties>
-  </profile>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <env.name>dev</env.name>
+      </properties>
+    </profile>
 
-  <profile>
-    <id>qa</id>
-    <properties>
-      <env.name>qa</env.name>
-    </properties>
-  </profile>
+    <profile>
+      <id>qa</id>
+      <properties>
+        <env.name>qa</env.name>
+      </properties>
+    </profile>
 
-  <profile>
-    <id>test</id>
-    <properties>
-      <env.name>test</env.name>
-    </properties>
-  </profile>
+    <profile>
+      <id>test</id>
+      <properties>
+        <env.name>test</env.name>
+      </properties>
+    </profile>
 
-</profiles>
+  </profiles>
+
+</project>
 
