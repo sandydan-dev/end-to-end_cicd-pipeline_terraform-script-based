@@ -79,28 +79,26 @@
   <!-- ✅ ADDED ONLY THIS SECTION -->
   <profiles>
 
-    <profile>
-      <id>dev</id>
-      <properties>
-        <env>dev</env>
-      </properties>
-    </profile>
+  <profile>
+    <id>dev</id>
+    <properties>
+      <env.name>dev</env.name>
+    </properties>
+  </profile>
 
-    <profile>
-      <id>qa</id>
-      <properties>
-        <env>qa</env>
-      </properties>
-    </profile>
+  <profile>
+    <id>qa</id>
+    <properties>
+      <env.name>qa</env.name>
+    </properties>
+  </profile>
 
-    <profile>
-      <id>test</id>
-      <properties>
-        <env>test</env>
-      </properties>
-    </profile>
+  <profile>
+    <id>test</id>
+    <properties>
+      <env.name>test</env.name>
+    </properties>
+  </profile>
 
-  </profiles>
-
-</project>
+</profiles>
 
