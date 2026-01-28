@@ -5,6 +5,11 @@ pipeline{
   // timestamps
 
 
+  // environment
+  environment {
+    ENV = "dev"
+  }
+
   stages{
 
     // chekout git scm 
@@ -18,7 +23,7 @@ pipeline{
     stage("Build"){
       
       steps{
-        echo "Compile and Build appliation"
+        echo "Compile and Build appliation Env $ENV"
         sh "echo Build Successfull"
 //java: sh mvn clean package
 //node: sh npm run build	
