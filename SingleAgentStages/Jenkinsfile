@@ -61,7 +61,9 @@ pipeline{
 
     // push artifacts
     stage("Push Artifacts"){
-      echo "Push Artifacts to registry"
+      steps{
+        echo "Push Artifacts to registry"
+      }
     }
 
     // deploy stage
@@ -94,6 +96,7 @@ pipeline{
     // always clean up
     always {
       echo "Cleaning Workspace"
+      cleanWs()
     }
    
   }
