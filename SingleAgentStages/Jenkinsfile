@@ -77,7 +77,7 @@ pipeline{
   post{
 
     // all stages passed
-    succuss {
+    success {
       echo "Pipeline Completed successfully."
     }    
 
