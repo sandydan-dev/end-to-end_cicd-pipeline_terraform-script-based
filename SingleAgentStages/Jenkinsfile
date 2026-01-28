@@ -1,0 +1,38 @@
+pipeline{
+  
+  agent any
+
+  // timestamps
+  options{
+    timestamps()
+  }
+
+  stages{
+    // test stage
+    stage("Build"){
+      
+      steps{
+        echo "Build Job"
+      }
+ 
+    }
+    // test stage
+
+    stage("Test"){
+      steps{
+        sh "date"
+        sh "cal"
+        echo "Testing stage"
+      }
+    }
+
+    // deploy stage
+    stage("Deploy"){
+      steps{
+        echo "Deploying stage"
+      }
+    }
+
+  }
+
+}
