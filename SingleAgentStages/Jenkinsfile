@@ -6,6 +6,14 @@ pipeline{
 
 
   stages{
+
+    // chekout git scm 
+    stage("git checkout"){
+      steps{
+        checkout scm
+      }
+    }
+
     // test stage
     stage("Build"){
       
