@@ -14,31 +14,88 @@ pipeline{
       }
     }
 
-    // test stage
+    // Build Stage, compile and build application, and fail fast if code is broken
     stage("Build"){
       
       steps{
-        echo "Build Job"
+        echo "Compile and Build appliation"
+        sh "echo Build Successfull"
+//java: sh mvn clean package
+//node: sh npm run build	
       }
  
     }
-    // test stage
 
-    stage("Test"){
+    // unit test stage
+    stage("Unit Test"){
       steps{
         sh "date"
         sh "cal"
-        echo "Testing stage"
+        echo "Running Testing stage"
+        sh "echo Unit tests passed"
       }
+    }
+
+    // static code anyalysis, it check code quality
+    stage("Static Code Analysis"){
+      steps{
+        echo "Running code Quality Scan"
+        sh "echo sonar scan completed"
+      }
+    }
+
+    // Security Scan
+    stage("Security Scan"){
+      steps{
+        echo "Running Security Scan"
+        sh "echo no velnerabilities found"
+      }
+    }
+
+    // create Artifacts
+    stage("Package Artifacts"){
+      steps{
+        echo "packaging artifacts appliation"
+      }
+    }
+
+    // push artifacts
+    stage("Push Artifacts"){
+      echo "Push Artifacts to registry"
     }
 
     // deploy stage
     stage("Deploy"){
       steps{
-        echo "Deploying stage"
+        echo "Deploying to dev environment"
       }
     }
 
+  }
+
+  // post build action
+  post{
+
+    // all stages passed
+    succuss {
+      echo "Pipeline Completed successfully."
+    }    
+
+    // if any stage failed
+    failure {
+      echo "Pipeline Failed"
+    }
+   
+    // unstable pipeline test quality issue
+    unstable {
+      echo "Pipeline Unstable"
+    }
+
+    // always clean up
+    always {
+      echo "Cleaning Workspace"
+    }
+   
   }
 
 }
